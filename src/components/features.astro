@@ -1,0 +1,42 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon";
+
+const features = [
+  {
+    title: "AIs that show their work",
+    description:
+      "Our AIs don't just spit out an answer, they tell you the exact logic they used to arrive at their conclusions",
+    icon: "bx:bxs-briefcase",
+  },
+  {
+    title: "Human-Readable Models",
+    description:
+      "Our AI models break down into simple logic statements, making it easy for humans to understand their reasoning",
+    icon: "bx:bxs-window-alt",
+  },
+  {
+    title: "Easy modification",
+    description:
+      "Don't like the responses you get from your model? Change it! Get immediate insight into the behavior of your models, and refine their behavior without needing to retrain",
+    icon: "bx:bxs-data",
+  },
+];
+---
+
+
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+  {
+    features.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
+          <Icon class="text-white" name={item.icon} />
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>
