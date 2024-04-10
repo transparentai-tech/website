@@ -4,6 +4,7 @@ import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import { Icon } from "astro-icon";
 
 // Filter team entries with 'draft: false' & date before current date
 const publishedTeamMembers = await getCollection("team", ({ data }) => {
@@ -15,14 +16,13 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
   <Container>
     <Sectionhead>
       <Fragment slot="title">About</Fragment>
-      <Fragment slot="desc">We are a small passionate team.</Fragment>
+      <Fragment slot="desc"></Fragment>
     </Sectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
       <h2 class="font-bold text-3xl text-gray-800">
         Empowering you with verifiable AI.
       </h2>
-      <p class="text-lg leading-relaxed text-slate-500"></p>
     </div>
     <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
       {
@@ -48,6 +48,25 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
           </div>
         ))
       }
+    </div>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-3xl text-gray-800">
+        Contact Us 
+      </h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
+      <div>
+        <p class="text-lg leading-relaxed text-slate-500 mt-3">
+          Questions? We're happy to talk. You can reach us at:
+        </p>
+        <div class="mt-5">
+          <div class="flex items-center mt-2 space-x-2 text-gray-600">
+            <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" />
+            <a href="mailto info@transparent-ai.tech">info@transparent-ai.tech</a>
+          </div>
+        </div>
+      </div>
     </div>
   </Container>
 </Layout>
