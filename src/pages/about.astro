@@ -7,9 +7,9 @@ import Sectionhead from "@components/sectionhead.astro";
 import { Icon } from "astro-icon";
 
 // Filter team entries with 'draft: false' & date before current date
-const publishedTeamMembers = await getCollection("team", ({ data }) => {
+const publishedTeamMembers = (await getCollection("team", ({ data }) => {
   return !data.draft && data.publishDate < new Date();
-});
+})).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Layout title="About">
